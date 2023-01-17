@@ -3,14 +3,17 @@ import { Controller, Post } from "@nestjs/common";
 
 @Controller()
 export class AuthController {
-    constructor(private authService: AuthService) { }    // DEPENDENCY INJECTION !!!
+    constructor(private authService: AuthService) { }   // DEPENDENCY INJECTION !!!
 
     @Post('login')
-    login()  { this.authService.login() }
+    login()  { return this.authService.login() }        // ROUTE STRUCTURE:  https://host:port/auth/login  (/folder/function)
 
     @Post('logout')
-    logout() { this.authService.logout() }
+    logout() { return this.authService.logout() }       // AUTO CONVERSION:  e.g., type string returns an html document whereas type object returns application/json
 
     @Post('signup')
-    signup() { this.authService.signup() }
+    signup() { return this.authService.signup() }
+
+    @Post('json')
+    json() { return { user: "you" } }
 }

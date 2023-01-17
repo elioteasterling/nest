@@ -3,8 +3,8 @@ import { Module } from "@nestjs/common"
 import { AuthService } from './auth.service'
 
 @Module({
-    imports: [],
+    imports:     [],
     controllers: [AuthController],
-    providers: [AuthService],
+    providers:   [AuthService],
 })
 export class AuthModule {}
