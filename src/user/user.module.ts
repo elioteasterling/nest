@@ -1,6 +1,5 @@
 import { Module } from "@nestjs/common"
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { PrismaService } from "src/prisma/prisma.service"
 
 @Module({
     imports: [],
@@ -9,7 +8,9 @@ const prisma = new PrismaClient()
 })
 export class UserModule {
 
+    constructor(private prisma: PrismaService) {}
+
     async getUsers() {
-        return await prisma.user.findMany()
+        return await this.prisma.user.findMany()
     }
 }

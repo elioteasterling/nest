@@ -6,7 +6,7 @@ export class AuthController {
     constructor(private authService: AuthService) { }   // DEPENDENCY INJECTION !!!
 
     @Post('login')
-    login()  { return this.authService.login() }        // ROUTE STRUCTURE:  https://host:port/auth/login  (/folder/function)
+    login()  { return this.authService.login('') }      // ROUTE STRUCTURE:  https://host:port/auth/login  (/folder/function)
 
     @Post('logout')
     logout() { return this.authService.logout() }       // AUTO CONVERSION:  e.g., type string returns an html document whereas type object returns application/json
